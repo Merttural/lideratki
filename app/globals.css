@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-source), ui-sans-serif, sans-serif;
+  --font-display: var(--font-barlow), "Arial Narrow", sans-serif;
+  --color-ink: #16191e;
+  --color-navy: #10233f;
+  --color-paper: #f3efe6;
+  --color-card: #fffcf7;
+  --color-line: #ddd6c8;
+  --color-scarlet: #c8102e;
+  --color-wa: #0e6e3a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-scarlet);
+  outline-offset: 2px;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  overflow-x: clip;
+}
+
+::selection {
+  background: #c8102e;
+  color: white;
+}
