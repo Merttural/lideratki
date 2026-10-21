@@ -1,4 +1,4 @@
-import { EMAIL, PHONE_DISPLAY, SITE_URL } from "@/lib/catalog";
+import { ADDRESS, EMAIL, PHONE_DISPLAY, SITE_URL } from "@/lib/catalog";
 import type { Locale } from "@/lib/i18n";
 
 export const PRIVACY_PATH = {
@@ -6,8 +6,7 @@ export const PRIVACY_PATH = {
   en: "/en/privacy",
 } as const;
 
-export const ADDRESS =
-  "Çağlayan, Fevzi Çakmak Cd. Birlik Han No:9, 34403 Kağıthane/İstanbul";
+export { ADDRESS };
 
 export type PrivacySection = {
   title: string;
@@ -38,6 +37,7 @@ export const privacyCopy: Record<Locale, PrivacyCopy> = {
         title: "1. Veri sorumlusu",
         paragraphs: [
           `Veri sorumlusu Lider Atkı’dır. Adres: ${ADDRESS}. E-posta: ${EMAIL}. Telefon: ${PHONE_DISPLAY}. Web sitesi: ${SITE_URL}.`,
+          "Siparişler Lider Atkı markasıyla alınır. Üretim Kağıthane/İstanbul’daki üretim yerimizde yapılır.",
         ],
       },
       {
@@ -61,13 +61,15 @@ export const privacyCopy: Record<Locale, PrivacyCopy> = {
           "Numune, üretim ve teslimat sürecini yürütmek",
           "Siparişle ilgili sorularınıza cevap vermek",
           "Yasal yükümlülükleri yerine getirmek",
+          "İzin verirseniz Google Ads ile reklam performansını ölçmek",
         ],
       },
       {
         title: "4. Çerezler ve ölçüm",
         paragraphs: [
-          "Sitede şu anda zorunlu olmayan reklam veya analitik çerezi bulunmayabilir. Google Ads veya benzeri bir ölçüm aracı eklenirse dönüşüm ve reklam performansını ölçmek için kullanılabilir.",
-          "Tarayıcınızdan çerezleri silebilir veya engelleyebilirsiniz. Bazı site özellikleri bundan etkilenmez çünkü sipariş WhatsApp ve telefon üzerinden yürür.",
+          "Google Ads kimliği yapılandırıldığında sitede kısa bir çerez bildirimi çıkar. Kabul ederseniz Google Ads ölçüm çerezleri yüklenir; reddederseniz bu çerezler yüklenmez.",
+          "Ölçüm; reklam tıklamaları, WhatsApp ve telefon teklif tıklamalarını anlamamıza yardımcı olur. Site, WhatsApp ve telefon reddetseniz de çalışır.",
+          "Tarayıcınızdan çerezleri silebilir veya engelleyebilirsiniz.",
         ],
       },
       {
@@ -124,6 +126,7 @@ export const privacyCopy: Record<Locale, PrivacyCopy> = {
         title: "1. Data controller",
         paragraphs: [
           `The data controller is Lider Atkı. Address: ${ADDRESS}. Email: ${EMAIL}. Phone: ${PHONE_DISPLAY}. Website: ${SITE_URL}.`,
+          "Orders are taken under the Lider Atkı name. Production is done at our Kağıthane/Istanbul workshop.",
         ],
       },
       {
@@ -147,13 +150,15 @@ export const privacyCopy: Record<Locale, PrivacyCopy> = {
           "Run sample, production and delivery",
           "Answer order-related questions",
           "Meet legal obligations",
+          "Measure ad performance with Google Ads if you consent",
         ],
       },
       {
         title: "4. Cookies and measurement",
         paragraphs: [
-          "The site may not currently use optional advertising or analytics cookies. If Google Ads or similar measurement is added, it may be used to measure conversions and ad performance.",
-          "You can delete or block cookies in your browser. Ordering still works through WhatsApp and phone.",
+          "When a Google Ads ID is configured, a short cookie notice appears. If you accept, Google Ads measurement cookies load; if you decline, they do not.",
+          "Measurement helps us understand ad clicks and WhatsApp or phone quote clicks. The site, WhatsApp and phone still work if you decline.",
+          "You can delete or block cookies in your browser.",
         ],
       },
       {

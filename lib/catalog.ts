@@ -3,6 +3,13 @@ export const PHONE_E164 = "905425838573";
 export const INSTAGRAM_URL = "https://www.instagram.com/lideratkii/";
 export const EMAIL = "lideratki@gmail.com";
 export const SITE_URL = "https://www.lideratki.com";
+export const ADDRESS =
+  "Çağlayan, Fevzi Çakmak Cd. Birlik Han No:9, 34403 Kağıthane/İstanbul";
+export const ADDRESS_LOCALITY = "Kağıthane";
+export const ADDRESS_REGION = "İstanbul";
+export const ADDRESS_POSTAL = "34403";
+export const ADDRESS_COUNTRY = "TR";
+export const ADDRESS_STREET = "Çağlayan, Fevzi Çakmak Cd. Birlik Han No:9";
 
 export function whatsappLink(message: string) {
   return `https://wa.me/${PHONE_E164}?text=${encodeURIComponent(message)}`;

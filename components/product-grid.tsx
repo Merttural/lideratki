@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { LeadLink } from "@/components/lead-link";
 import { whatsappLink, type Product } from "@/lib/catalog";
 import { productMessage, ui, type Locale } from "@/lib/i18n";
 
@@ -27,8 +28,9 @@ export function ProductGrid({
           const href = whatsappLink(productMessage(product.name, locale));
           return (
             <li key={product.image}>
-              <a
+              <LeadLink
                 href={href}
+                conversion="whatsapp"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-scarlet"
@@ -50,7 +52,7 @@ export function ProductGrid({
                   )}
                   <span className="shrink-0 text-sm font-semibold text-wa">{t.whatsapp}</span>
                 </div>
-              </a>
+              </LeadLink>
             </li>
           );
         })}

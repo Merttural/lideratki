@@ -80,6 +80,12 @@ export type Ui = {
   menuClose: string;
   groups: string[];
   privacy: string;
+  addressLabel: string;
+  productionNote: string;
+  cookieTitle: string;
+  cookieBody: string;
+  cookieAccept: string;
+  cookieReject: string;
 };
 
 export const ui: Record<Locale, Ui> = {
@@ -130,6 +136,14 @@ export const ui: Record<Locale, Ui> = {
     menuClose: "Kapat",
     groups: ["Atkılar", "Bere ve şapka", "Bayraklar", "Polar"],
     privacy: "Gizlilik politikası",
+    addressLabel: "Adres",
+    productionNote:
+      "Siparişler Lider Atkı markasıyla alınır. Üretim Kağıthane/İstanbul’daki üretim yerimizde yapılır.",
+    cookieTitle: "Ölçüm çerezleri",
+    cookieBody:
+      "Reklam performansını ölçmek için Google Ads çerezleri kullanabiliriz. Kabul etmezseniz ölçüm yüklenmez; site ve WhatsApp çalışmaya devam eder.",
+    cookieAccept: "Kabul et",
+    cookieReject: "Reddet",
   },
   en: {
     eyebrow: "From 1 piece · 5,000 a day",
@@ -178,6 +192,14 @@ export const ui: Record<Locale, Ui> = {
     menuClose: "Close",
     groups: ["Scarves", "Beanies and hats", "Flags", "Fleece"],
     privacy: "Privacy policy",
+    addressLabel: "Address",
+    productionNote:
+      "Orders are taken under the Lider Atkı name. Production is done at our Kağıthane/Istanbul workshop.",
+    cookieTitle: "Measurement cookies",
+    cookieBody:
+      "We may use Google Ads cookies to measure ad performance. If you decline, measurement is not loaded; the site and WhatsApp still work.",
+    cookieAccept: "Accept",
+    cookieReject: "Decline",
   },
 };
 

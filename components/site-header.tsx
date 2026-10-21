@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { LeadLink } from "@/components/lead-link";
 import { INSTAGRAM_URL, PHONE_DISPLAY, PHONE_E164 } from "@/lib/catalog";
 import { hrefFor, localeFromPath, navGroups, switchLocaleHref, ui } from "@/lib/i18n";
 
@@ -52,12 +53,13 @@ export function SiteHeader() {
           >
             Instagram
           </a>
-          <a
+          <LeadLink
             href={`tel:+${PHONE_E164}`}
+            conversion="phone"
             className="inline-flex min-h-11 items-center font-display text-xl leading-none font-bold tracking-wide text-navy"
           >
             {PHONE_DISPLAY}
-          </a>
+          </LeadLink>
           <button
             type="button"
             className="inline-flex min-h-11 min-w-11 items-center justify-center border border-navy px-2 text-sm font-bold tracking-wide text-navy uppercase md:hidden"

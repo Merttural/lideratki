@@ -1,9 +1,20 @@
 import type { Metadata } from "next";
 import { Barlow_Condensed, Source_Sans_3 } from "next/font/google";
+import { AdsConsent } from "@/components/ads-consent";
 import { LocaleLang } from "@/components/locale-lang";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { EMAIL, PHONE_E164, SITE_URL, home } from "@/lib/catalog";
+import {
+  ADDRESS_COUNTRY,
+  ADDRESS_LOCALITY,
+  ADDRESS_POSTAL,
+  ADDRESS_REGION,
+  ADDRESS_STREET,
+  EMAIL,
+  PHONE_E164,
+  SITE_URL,
+  home,
+} from "@/lib/catalog";
 import "./globals.css";
 
 const display = Barlow_Condensed({
@@ -50,6 +61,14 @@ const jsonLd = {
       },
       description: home.description,
       areaServed: "TR",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: ADDRESS_STREET,
+        addressLocality: ADDRESS_LOCALITY,
+        addressRegion: ADDRESS_REGION,
+        postalCode: ADDRESS_POSTAL,
+        addressCountry: ADDRESS_COUNTRY,
+      },
       sameAs: ["https://www.instagram.com/lideratkii/"],
     },
     {
@@ -79,6 +98,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <SiteHeader />
         {children}
         <SiteFooter />
+        <AdsConsent />
       </body>
     </html>
   );
