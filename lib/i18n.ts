@@ -34,13 +34,16 @@ export function idFromPublicSlug(locale: Locale, publicSlug: string) {
 }
 
 export function switchLocaleHref(pathname: string) {
-  if (pathname === "/en" || pathname === "/en/") return "/";
-  if (pathname.startsWith("/en/")) {
-    const id = idByEnSlug[pathname.slice(4).replace(/\/$/, "")];
+  const path = pathname.replace(/\/$/, "") || "/";
+  if (path === "/gizlilik") return "/en/privacy";
+  if (path === "/en/privacy") return "/gizlilik";
+  if (path === "/en") return "/";
+  if (path.startsWith("/en/")) {
+    const id = idByEnSlug[path.slice(4)];
     return id ? `/${id}` : "/";
   }
-  if (pathname === "/") return "/en";
-  const id = pathname.slice(1).replace(/\/$/, "");
+  if (path === "/") return "/en";
+  const id = path.slice(1);
   return enSlugs[id] ? `/en/${enSlugs[id]}` : "/en";
 }
 
@@ -76,6 +79,7 @@ export type Ui = {
   menu: string;
   menuClose: string;
   groups: string[];
+  privacy: string;
 };
 
 export const ui: Record<Locale, Ui> = {
@@ -125,6 +129,7 @@ export const ui: Record<Locale, Ui> = {
     menu: "Menü",
     menuClose: "Kapat",
     groups: ["Atkılar", "Bere ve şapka", "Bayraklar", "Polar"],
+    privacy: "Gizlilik politikası",
   },
   en: {
     eyebrow: "From 1 piece · 5,000 a day",
@@ -172,6 +177,7 @@ export const ui: Record<Locale, Ui> = {
     menu: "Menu",
     menuClose: "Close",
     groups: ["Scarves", "Beanies and hats", "Flags", "Fleece"],
+    privacy: "Privacy policy",
   },
 };
 
