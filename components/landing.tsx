@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { LeadLink } from "@/components/lead-link";
 import { ProductGrid } from "@/components/product-grid";
 import { ScarfStripe } from "@/components/scarf-stripe";
 import { PHONE_DISPLAY, PHONE_E164, productsFor, whatsappLink, type Faq, type Product } from "@/lib/catalog";
@@ -79,14 +80,15 @@ export function Landing({
             </dl>
           ) : null}
           <div className="mt-7 flex flex-wrap items-center gap-3">
-            <a
+            <LeadLink
               href={wa}
+              conversion="whatsapp"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-wa px-5 py-3 font-display text-2xl font-bold tracking-wide text-white uppercase"
             >
               {t.whatsapp}
-            </a>
+            </LeadLink>
             <a
               href="#ornekler"
               className="border border-navy px-5 py-3 font-display text-2xl font-bold tracking-wide text-navy uppercase"
@@ -218,14 +220,15 @@ export function Landing({
                           {t.openPage}
                         </Link>
                       ) : null}
-                      <a
+                      <LeadLink
                         href={whatsappLink(productMessage(product.name, locale))}
+                        conversion="whatsapp"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-sm font-semibold text-wa"
                       >
                         {t.whatsapp}
-                      </a>
+                      </LeadLink>
                     </div>
                   </div>
                 </li>
@@ -279,32 +282,35 @@ export function Landing({
             {t.closeTitle}
           </h2>
           <div className="flex flex-wrap gap-3">
-            <a
+            <LeadLink
               href={wa}
+              conversion="whatsapp"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-wa px-5 py-3 font-display text-2xl font-bold tracking-wide text-white uppercase"
             >
               {t.whatsapp}
-            </a>
-            <a
+            </LeadLink>
+            <LeadLink
               href={`tel:+${PHONE_E164}`}
+              conversion="phone"
               className="border border-navy px-5 py-3 font-display text-2xl font-bold tracking-wide text-navy uppercase"
             >
               {PHONE_DISPLAY}
-            </a>
+            </LeadLink>
           </div>
         </div>
       </section>
 
-      <a
+      <LeadLink
         href={wa}
+        conversion="whatsapp"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed inset-x-0 bottom-0 z-40 bg-wa px-4 py-4 text-center font-display text-2xl font-bold tracking-wide text-white uppercase md:hidden"
       >
         {t.whatsapp}
-      </a>
+      </LeadLink>
     </main>
   );
 }

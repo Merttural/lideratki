@@ -34,13 +34,16 @@ export function idFromPublicSlug(locale: Locale, publicSlug: string) {
 }
 
 export function switchLocaleHref(pathname: string) {
-  if (pathname === "/en" || pathname === "/en/") return "/";
-  if (pathname.startsWith("/en/")) {
-    const id = idByEnSlug[pathname.slice(4).replace(/\/$/, "")];
+  const path = pathname.replace(/\/$/, "") || "/";
+  if (path === "/gizlilik") return "/en/privacy";
+  if (path === "/en/privacy") return "/gizlilik";
+  if (path === "/en") return "/";
+  if (path.startsWith("/en/")) {
+    const id = idByEnSlug[path.slice(4)];
     return id ? `/${id}` : "/";
   }
-  if (pathname === "/") return "/en";
-  const id = pathname.slice(1).replace(/\/$/, "");
+  if (path === "/") return "/en";
+  const id = path.slice(1);
   return enSlugs[id] ? `/en/${enSlugs[id]}` : "/en";
 }
 
@@ -76,6 +79,13 @@ export type Ui = {
   menu: string;
   menuClose: string;
   groups: string[];
+  privacy: string;
+  addressLabel: string;
+  productionNote: string;
+  cookieTitle: string;
+  cookieBody: string;
+  cookieAccept: string;
+  cookieReject: string;
 };
 
 export const ui: Record<Locale, Ui> = {
@@ -125,6 +135,15 @@ export const ui: Record<Locale, Ui> = {
     menu: "Menü",
     menuClose: "Kapat",
     groups: ["Atkılar", "Bere ve şapka", "Bayraklar", "Polar"],
+    privacy: "Gizlilik politikası",
+    addressLabel: "Adres",
+    productionNote:
+      "Siparişler Lider Atkı markasıyla alınır. Üretim Kağıthane/İstanbul’daki üretim yerimizde yapılır.",
+    cookieTitle: "Ölçüm çerezleri",
+    cookieBody:
+      "Reklam performansını ölçmek için Google Ads çerezleri kullanabiliriz. Kabul etmezseniz ölçüm yüklenmez; site ve WhatsApp çalışmaya devam eder.",
+    cookieAccept: "Kabul et",
+    cookieReject: "Reddet",
   },
   en: {
     eyebrow: "From 1 piece · 5,000 a day",
@@ -172,6 +191,15 @@ export const ui: Record<Locale, Ui> = {
     menu: "Menu",
     menuClose: "Close",
     groups: ["Scarves", "Beanies and hats", "Flags", "Fleece"],
+    privacy: "Privacy policy",
+    addressLabel: "Address",
+    productionNote:
+      "Orders are taken under the Lider Atkı name. Production is done at our Kağıthane/Istanbul workshop.",
+    cookieTitle: "Measurement cookies",
+    cookieBody:
+      "We may use Google Ads cookies to measure ad performance. If you decline, measurement is not loaded; the site and WhatsApp still work.",
+    cookieAccept: "Accept",
+    cookieReject: "Decline",
   },
 };
 

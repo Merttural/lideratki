@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { homeSamples, pages, productsFor, SITE_URL } from "@/lib/catalog";
 import { hrefFor } from "@/lib/i18n";
+import { PRIVACY_PATH } from "@/lib/privacy";
 
 export const dynamic = "force-static";
 
@@ -9,7 +10,7 @@ function imageLocs(paths: string[]) {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date("2026-10-19");
+  const lastModified = new Date("2026-10-21");
   const homeImages = imageLocs(homeSamples.map((product) => product.image));
   const home = {
     url: SITE_URL,
@@ -33,10 +34,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     images: homeImages,
     alternates: home.alternates,
   };
+  const privacyTr = `${SITE_URL}${PRIVACY_PATH.tr}`;
+  const privacyEn = `${SITE_URL}${PRIVACY_PATH.en}`;
+  const privacyLanguages = { tr: privacyTr, en: privacyEn, "x-default": privacyTr };
+  const privacy = [
+    {
+      url: privacyTr,
+      lastModified,
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
+      alternates: { languages: privacyLanguages },
+    },
+    {
+      url: privacyEn,
+      lastModified,
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
+      alternates: { languages: privacyLanguages },
+    },
+  ];
 
   return [
     home,
     englishHome,
+    ...privacy,
     ...pages.flatMap((page) => {
       const tr = `${SITE_URL}${hrefFor("tr", page.slug)}`;
       const en = `${SITE_URL}${hrefFor("en", page.slug)}`;
